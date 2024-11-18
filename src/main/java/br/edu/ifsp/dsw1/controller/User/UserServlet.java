@@ -10,7 +10,7 @@ import java.io.IOException;
 import br.edu.ifsp.dsw1.controller.command.Command;
 
 @WebServlet("/user.do")
-public class UserServlet extends HttpServlet implements Command {
+public class UserServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
        
     public UserServlet() {
@@ -18,17 +18,12 @@ public class UserServlet extends HttpServlet implements Command {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		execute(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		execute(request, response);
+
 	}
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		return " ";
-	}
 
 }
