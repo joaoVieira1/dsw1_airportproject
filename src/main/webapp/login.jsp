@@ -26,6 +26,7 @@
 	  </style>
    </head>
    <body>
+   
    		<div class="jumbotron">
 			  <h1 class="display-4">Você já está logado!</h1>
 			  <p class="lead">Seu cadastro foi um sucesso!</p>

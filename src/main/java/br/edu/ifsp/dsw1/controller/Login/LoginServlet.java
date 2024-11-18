@@ -45,6 +45,8 @@ public class LoginServlet extends HttpServlet{
 			view = handleLogar(request, response);
 		}else if(action.equals("getAdm")) {
 			view = handleAdm(request, response);
+		}else if(action.equals("getLogout")) {
+			view = handleLogout(request, response);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
@@ -85,5 +87,10 @@ public class LoginServlet extends HttpServlet{
 		return "adm.jsp";
 	}
 	
+	protected String handleLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		session.invalidate();
+		return "logout.jsp";
+	}
 
 }
