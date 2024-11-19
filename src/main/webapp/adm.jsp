@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
     
 <%
-
 	var logado = session.getAttribute("logado");
 
+	//verificando se o atributo da sessão é verdadeiro, caso a sessão não esteja inicializada 
+	//a variável assume como false
 	if(logado == null){
 		logado = "false";
 	}
-
-%>
+%> 
 
 
 <!DOCTYPE html>
@@ -32,6 +32,7 @@
 </head>
 <body>
 	
+	<!-- Autenticando o acesso de acordo com o atributo da sessão -->
 	<%if(logado.equals("false")){%>
 	
 		<div class="jumbotron">

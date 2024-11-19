@@ -2,17 +2,24 @@
     pageEncoding="UTF-8"%>
 
 <%
+	//conferindo atributo da sessão logado (true ou false)
 	var logado = session.getAttribute("logado");
 	
+	//caso a sessão não tenha sido inicializada, assume como false
 	if(logado == null){
 		logado = "false";
 	}
 	
 %>
 
+<!-- caso a sessão não esteja inicializada a tela de login é requisitada normalmento, senão  
+	 um aviso de que a sessão já está inicializada aparecerá. -->
 <%if(logado.equals("false")){%>
+
 <jsp:include page="/includes/login.html"/>
+
 <%}else{%>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -42,4 +49,5 @@
     	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
    </body>
 </html>
+
 <%}%>

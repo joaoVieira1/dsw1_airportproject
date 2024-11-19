@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%
+	//conferindo estado do parâmetro logado (true ou false)
 	boolean logado = (boolean) request.getAttribute("logado");
 	var user = request.getAttribute("user");
 %>    
@@ -21,6 +22,7 @@
 </head>
 <body>
 	
+	<!--Validando login -->
 	<%if(logado){%>
 		<div class="jumbotron">
 			  <h1 class="display-4">Logado como <%=user%>!</h1>

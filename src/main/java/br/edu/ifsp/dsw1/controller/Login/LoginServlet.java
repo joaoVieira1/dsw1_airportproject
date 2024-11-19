@@ -69,6 +69,7 @@ public class LoginServlet extends HttpServlet{
 		boolean logado;
 		
 		if(user.equals("admin") && senha.equals("admin")) {
+			//cria uma nova sessão e seta seu atributo como a variável booleana true
 			logado = true;
 			HttpSession session = request.getSession();
 			session.setAttribute("logado", logado);
@@ -76,7 +77,7 @@ public class LoginServlet extends HttpServlet{
 			logado = false;
 		}
 		
-		
+		//request também recebe como atributo o nome de usuário e status do login
 		request.setAttribute("user", user);
 		request.setAttribute("logado", logado);
 		
@@ -88,6 +89,7 @@ public class LoginServlet extends HttpServlet{
 	}
 	
 	protected String handleLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//pega e encerra a sessão já existente.
 		HttpSession session = request.getSession(false);
 		session.invalidate();
 		return "logout.jsp";
