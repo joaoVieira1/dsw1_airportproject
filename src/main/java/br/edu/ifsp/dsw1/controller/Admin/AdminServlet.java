@@ -43,6 +43,8 @@ public class AdminServlet extends HttpServlet {
 			view = handleAtualizarVoo(request, response);
 		}else if(action.equals("getCadastrarVoo")) {
 			view = handleCadastrarVoo(request, response);
+		}else if(action.equals("getAtualizacao")) {
+			view = handleAtualizacao(request, response);
 		}
 		
 		
@@ -56,6 +58,11 @@ public class AdminServlet extends HttpServlet {
 	}
 	
 	protected String handleAtualizarVoo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		FlightDataCollection flightsCollection = FlightDataCollectionSingleton.getInstance();
+		
+		request.setAttribute("flights", flightsCollection.getAllFligthts());
+		
 		return "atualizarVoo.jsp";
 	}
 	
@@ -79,5 +86,21 @@ public class AdminServlet extends HttpServlet {
 		return "vooCadastrado.jsp";
 	}
 	
+	protected String handleAtualizacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		FlightDataCollection flightsCollection = FlightDataCollectionSingleton.getInstance();
+		Long numberFlight = Long.parseLong(request.getParameter("flightNumber"));
+		
+		//achando voo do número do request
+		FlightData flight = flightsCollection.getAllFligthts().stream()
+												.filter(f -> f.getFlightNumber().equals(numberFlight)).findFirst().orElse(null);
+		
+		//atualizando
+		flightsCollection.updateFlight(flight.getFlightNumber());
+		
+		request.setAttribute("flightNumber", numberFlight);
+		
+		return "vooAtualizado.jsp";
+	}
 	
 }
