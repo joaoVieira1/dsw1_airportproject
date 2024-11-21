@@ -25,6 +25,25 @@ Algumas das técnicas utilizadas são: Frontcontroller, MVC, State, Observer
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
+## Imagens da aplicação
+
+![imagem1](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_1.png?raw=true)
+![imagem2](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_2.png?raw=true)
+![imagem3](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_3.png?raw=true)
+![imagem4](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_4.png?raw=true)
+![imagem5](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_5.png?raw=true)
+![imagem6](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_6.png?raw=true)
+![imagem7](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_7.png?raw=true)
+![imagem8](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_8.png?raw=true)
+![imagem9](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_9.png?raw=true)
+![imagem10](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_10.png?raw=true)
+![imagem11](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_11.png?raw=true)
+![imagem12](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_12.png?raw=true)
+![imagem13](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_13.png?raw=true)
+![imagem14](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_14.png?raw=true)
+![imagem15](https://github.com/joaoVieira1/dsw1_airportproject/blob/main/imagens%20appl/Screenshot_15.png?raw=true)
+
+
 
 
 
