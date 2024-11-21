@@ -54,19 +54,19 @@
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-2 col-form-label">Número: </label>
 			    <div class="col-sm-8">
-			      <input type="number" class="form-control" id="inputEmail3" placeholder="Número do Voo" name="text_numero_voo">
+			      <input type="number" class="form-control" id="inputEmail3" placeholder="Número do Voo" name="text_numero_voo" required="required"> 
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="inputPassword3" class="col-sm-2 col-form-label">Companhia: </label>
 			    <div class="col-sm-8">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="Companhia" name="text_companhia">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Companhia" name="text_companhia" required="required">
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="inputPassword3" class="col-sm-2 col-form-label">Data/Hora: </label>
 			    <div class="col-sm-8">
-			      <input type="datetime-local" class="form-control" id="inputPassword3" placeholder="Data/Hora" name="text_data_hora">
+			      <input type="datetime-local" class="form-control" id="inputPassword3" placeholder="Data/Hora" name="text_data_hora" required="required">
 			    </div>
 			  </div>
 			  <div class="form-group row">
