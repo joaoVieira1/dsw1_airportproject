@@ -46,10 +46,11 @@ public class FlightDataCollection implements FlightDataSubject{
 	public void updateFlight(Long flightNumber) {
 		var flight = findByNumber(flightNumber);
 		if (flight != null) {
-			flight.getState().change(flight);
+			//checando o estado antes de alterar para realmente mostrar todos os estados
 			if (flight.getState() instanceof TookOff) {
 				flights.remove(flight);
 			}
+			flight.getState().change(flight);
 			lastUpdated = flight;
 			notifyObservers();
 		}
