@@ -2,6 +2,15 @@
 <%@page import="br.edu.ifsp.dsw1.model.entity.FlightData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	var logado = session.getAttribute("logado");
+	
+	//verificando se o atributo da sessão é verdadeiro, caso a sessão não esteja inicializada 
+	//a variável assume como false
+	if(logado == null){
+		logado = "false";
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +33,18 @@
 		flex-direction: column;
 		align-items: center;
 	}
+	.jumbotron{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.botoes{
+		display:flex;
+	}
+	.btn-lg{
+		margin: 5px;
+	}
+	
 </style>
 </head>
 <body>
@@ -31,42 +52,56 @@
 		var flightsCollection = (List<FlightData>) request.getAttribute("flights");
 	%>
 	
-	<div class="titulo">
-		<h1>Atualização de Voos!</h1>
-	</div>
+	<%if(logado.equals("false")){%>
+		<div class="jumbotron">
+			  <h1 class="display-4">Apenas administradores</h1>
+			  <p class="lead">É necessário se cadastrar como administrador para acessar essa página!</p>
+			  <hr class="my-4">
+			  <div class="botoes">
+			  	<a class="btn btn-primary btn-lg" href="login.do?action=getIndex" role="button">Página inicial</a>
+			  	<a class="btn btn-primary btn-lg" href="login.do?action=getLogin" role="button">Cadastrar-se</a>
+			  </div>
+		</div>
+	<%}else{%>
+		<div class="titulo">
+			<h1>Atualização de Voos!</h1>
+		</div>
+		
+		<%if(flightsCollection != null && !flightsCollection.isEmpty()){%>
+			<table class="table table-dark">
+				  <thead>
+					    <tr>
+						      <th scope="col">Número</th>
+						      <th scope="col">Companhia</th>
+						      <th scope="col">Data/Hora</th>
+						      <th scope="col">Estado</th>
+						      <th scope="col">Ação</th>
+					    </tr>
+				  </thead>
+				  <tbody>
+				  		<%for(var flights : flightsCollection){%>
+					    <tr>
+						      <th scope="row"><%= flights.getFlightNumber()%></th>
+						      <td><%= flights.getCompany()%></td>
+						      <td><%= flights.getTime() %></td>
+						      <td><%= flights.getState().getClass().getSimpleName() %></td>
+						      <td><a class="btn btn-primary btn-lg" href="admin.do?action=getAtualizacao&flightNumber=<%=flights.getFlightNumber()%>" role="button">Atualizar</a></td>
+					    </tr>
+					    <%};%>
+				  </tbody>
+			</table>
+		<%}else{ %>
+			<div class="alert alert-success" role="alert">
+			  <h4 class="alert-heading">Nenhum voo cadastrado!</h4>
+		    </div>
+		<%} %>
+		
+		<div class="container">
+			<a class="btn btn-primary btn-lg" href="login.do?action=getAdm" role="button">Administração</a>
+		</div>
+	<%}%>
 	
-	<%if(flightsCollection != null && !flightsCollection.isEmpty()){%>
-		<table class="table table-dark">
-			  <thead>
-				    <tr>
-					      <th scope="col">Número</th>
-					      <th scope="col">Companhia</th>
-					      <th scope="col">Data/Hora</th>
-					      <th scope="col">Estado</th>
-					      <th scope="col">Ação</th>
-				    </tr>
-			  </thead>
-			  <tbody>
-			  		<%for(var flights : flightsCollection){%>
-				    <tr>
-					      <th scope="row"><%= flights.getFlightNumber()%></th>
-					      <td><%= flights.getCompany()%></td>
-					      <td><%= flights.getTime() %></td>
-					      <td><%= flights.getState().getClass().getSimpleName() %></td>
-					      <td><a class="btn btn-primary btn-lg" href="admin.do?action=getAtualizacao&flightNumber=<%=flights.getFlightNumber()%>" role="button">Atualizar</a></td>
-				    </tr>
-				    <%};%>
-			  </tbody>
-		</table>
-	<%}else{ %>
-		<div class="alert alert-success" role="alert">
-		  <h4 class="alert-heading">Nenhum voo cadastrado!</h4>
-	    </div>
-	<%}; %>
 	
-	<div class="container">
-		<a class="btn btn-primary btn-lg" href="login.do?action=getAdm" role="button">Administração</a>
-	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

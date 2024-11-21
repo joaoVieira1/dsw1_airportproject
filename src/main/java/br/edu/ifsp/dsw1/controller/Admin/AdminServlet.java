@@ -93,7 +93,10 @@ public class AdminServlet extends HttpServlet {
 		
 		//achando voo do número do request
 		FlightData flight = flightsCollection.getAllFligthts().stream()
-												.filter(f -> f.getFlightNumber().equals(numberFlight)).findFirst().orElse(null);
+												.filter(f -> f.getFlightNumber()
+												.equals(numberFlight))
+												.findFirst()
+												.orElse(null);
 		
 		//atualizando
 		flightsCollection.updateFlight(flight.getFlightNumber());
